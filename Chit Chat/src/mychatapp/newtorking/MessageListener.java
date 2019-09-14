@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package mychatapp.newtorking;
 
 import java.io.BufferedReader;
@@ -12,6 +16,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+
 public class MessageListener extends Thread{
     
     ServerSocket server;
@@ -23,7 +29,7 @@ public class MessageListener extends Thread{
     private DatagramSocket socket;
     private InetAddress address;
  
-    private byte[] buf = new byte[3005];
+    private byte[] buf = new byte[3000];
     //
     
     public MessageListener(writableGUI gui,int port)
@@ -60,7 +66,7 @@ public class MessageListener extends Thread{
             String line = data(buf).toString();
             if(line != null)
             {
-                gui.write("Friend : "+line);
+                gui.write("Friend: "+line);
             }
         } catch (IOException ex) {
             Logger.getLogger(MessageListener.class.getName()).log(Level.SEVERE, null, ex);
